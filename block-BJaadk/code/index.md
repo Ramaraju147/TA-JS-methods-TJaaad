@@ -10,8 +10,11 @@ function double(num) {
 }
 let doubleNum = numbers.forEach(double);
 ```
+
 ![](./img/main.png)
 
+It provides numbers as stream of data to double
+it doesn't return anything as we are using forEach but alerts each number
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -21,6 +24,9 @@ function double(num) {
 let doubleNum = numbers.forEach(double);
 ```
 
+It provides numbers as stream of data to double
+it doesn't return anything as we are using forEach but returned values are garbage collected.
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function double(num) {
@@ -28,6 +34,9 @@ function double(num) {
 }
 let doubleNum = numbers.forEach(double);
 ```
+
+It provides numbers as stream of data to double
+it doesn't return anything as we are using forEach but prints the number.
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -37,6 +46,9 @@ function double(num) {
 let doubleNumbers = numbers.map(double);
 ```
 
+It provides numbers as stream of data to double
+it returns array of same length with each number is doubled.
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function addTwo(num) {
@@ -45,6 +57,9 @@ function addTwo(num) {
 let doubleNumbers = numbers.map(addTwo);
 ```
 
+It provides numbers as stream of data to addTwo
+it returns array of same length with two is added to each number
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function addTwo(num) {
@@ -52,6 +67,9 @@ function addTwo(num) {
 }
 let doubleNumbers = numbers.map(addTwo);
 ```
+
+It provides numbers as stream of data to addTwo
+it returns array of same length with undefined also console.logs the number
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -61,6 +79,9 @@ function addTwo(num) {
 let doubleNumbers = numbers.map(addTwo);
 ```
 
+It provides numbers as stream of data to addTwo
+it returns array of same length with undefined also alerts the number
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function isOdd(num) {
@@ -68,6 +89,9 @@ function isOdd(num) {
 }
 let oddNumbers = numbers.filter(isOdd);
 ```
+
+It provides numbers as stream of data to isOdd
+it returns array of numbers which returns truthy value.
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -77,6 +101,9 @@ function test(num) {
 let filteredNumbers = numbers.filter(test);
 ```
 
+It provides numbers as stream of data to test
+it returns array of numbers which returns truthy value after converting number to boolean
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function test(num) {
@@ -84,6 +111,9 @@ function test(num) {
 }
 let filteredNumbers = numbers.filter(test);
 ```
+
+It provides numbers as stream of data to test
+it returns empty array but prints the number.
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -93,6 +123,9 @@ function add(accumulator, currentValue) {
 let sum = numbers.reduce(add);
 ```
 
+It provides numbers as stream of data to add
+it returns sum 570 and
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function add(accumulator, currentValue) {
@@ -100,3 +133,6 @@ function add(accumulator, currentValue) {
 }
 let sum = numbers.reduce(add);
 ```
+
+It provides numbers as stream of data to add
+it prints 300 first and then adds undefined with number which logs NaN
