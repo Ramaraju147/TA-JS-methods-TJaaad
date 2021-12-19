@@ -33,256 +33,305 @@ Example:
 
 2. `toUpperCase`
 
-- Parameter: it doesn't take any parameter
-  - Return: returns upper case string (string data type)
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.toUpperCase();
-  let sentance = "A quick brown fox jumped over a lazy dog";
-  sentance.toUpperCase();
-  let houseName = "Starks";
-  houseName.toUpperCase();
-  ```
-  `toUpperCase` - applies on string and returns upperCase string
+   - Parameter: no arguments required
+   - Return: returns string with upper case
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.toUpperCase(); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.toUpperCase(); 
+     let houseName = "Starks";
+     houseName.toUpperCase(); 
+     ```
+   - `toUpperCase` returns value converted to upper case;
+
 
 3. `toLowerCase`
 
-- Parameter: it doesn't take any parameter
-  - Return:returns lower case string (string data type)
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.toLowerCase();
-  let sentance = "A quick brown fox jumped over a lazy dog";
-  sentance.toLowerCase();
-  let houseName = "Starks";
-  houseName.toLowerCase();
-  ```
-  `toLowerCase` - applies on string and returns lowerCase string
+   - Parameter: no arguments required
+   - Return: returns string with lower case
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.toLowerCase(); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.toLowerCase(); 
+     let houseName = "Starks";
+     houseName.toLowerCase(); 
+     ```
+   - `toLowerCase` returns value converted to lower case;
+
 
 4. `trim`
 
-- Parameter: it doesn't take any parameter
-  - Return: returns new string removing whitespace on both ends (string data type)
-  - Example:
-  ```js
-  let name = "    Arya Stark";
-  name.trim();
-  let sentance = "  A quick brown fox jumped over a lazy dog   ";
-  sentance.trim();
-  let houseName = "Starks   ";
-  houseName.trim();
-  ```
-  `trim` - applies on string and returns new string removing whitespace on both ends
+   - Parameter: no arguments required
+   - Return: returns string with white space trimmed on both ends
+   - Example:
+     ```js
+     let name = "  Arya Stark";
+     name.trim(); 
+     let sentance = "A quick brown fox jumped over a lazy dog   ";
+     sentance.trim(); 
+     let houseName = "  Starks  ";
+     houseName.trim(); 
+     ```
+   - `trim` returns value with white space trimmed on both ends;
+
 
 5. `trimEnd`
 
-- Parameter: it doesn't take any parameter
-  - Return: returns new string removing whitespace on right end (string data type)
-  - Example:
-  ```js
-  let name = "Arya Stark    ";
-  name.trimEnd();
-  let sentance = "  A quick brown fox jumped over a lazy dog   ";
-  sentance.trimEnd();
-  let houseName = "Starks   ";
-  houseName.trimEnd();
-  ```
-  `trimEnd` - applies on string and returns new string removing whitespace on right end
+   - Parameter: no arguments required
+   - Return: returns string with white space trimmed on rear end
+   - Example:
+     ```js
+     let name = "  Arya Stark  ";
+     name.trimEnd(); 
+     let sentance = "A quick brown fox jumped over a lazy dog   ";
+     sentance.trimEnd(); 
+     let houseName = "  Starks  ";
+     houseName.trimEnd(); 
+     ```
+   - `trimEnd` returns value with white space trimmed on rear ends;
+   Alias - `trimRight`
+
 
 6. `trimStart`
 
-- Parameter: it doesn't take any parameter
-  - Return: returns new string removing whitespace on left end (string data type)
-  - Example:
-  ```js
-  let name = "    Arya Stark";
-  name.trimStart();
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.trimStart();
-  let houseName = "   Starks";
-  houseName.trimStart();
-  ```
-  `trimStart` - applies on string and returns new string removing whitespace on left end
+   - Parameter: no arguments required
+   - Return: returns string with white space trimmed on front end
+   - Example:
+     ```js
+     let name = "  Arya Stark  ";
+     name.trimStart(); 
+     let sentance = "  A quick brown fox jumped over a lazy dog   ";
+     sentance.trimLeft(); 
+     let houseName = "  Starks  ";
+     houseName.trimStart(); 
+     ```
+   - `trimStart` returns value with white space trimmed on front ends;
+   Alias - `trimLeft`
 
 7. `concat`
 
-- Parameter: it takes strings as parameters to concatenate
-  - Return: returns new string combining strings passed in as parameters (string data type)
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.concat(" I am Warrior");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.concat("", "Right infront of it.");
-  let houseName = "   Starks";
-  "".concat(houseName);
-  ```
-  `concat` - takes strings as parameters and contatenates to string upon which it is called.
+   - Parameter: one or more strings
+   - Return: returns string
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.conact(" ","winterfall"); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.concat(" husky"); 
+     let houseName = "  Starks  ";
+     houseName.concat(" of Winterfall"); 
+     ```
+   - `concat` returns string to calling string with concatenated strings passed as the arguments
+
 
 8. `endsWith`
 
-- Parameter: it takes characters to be searched at the end of the string, also it has optional parameter length of the main string otherwise it defaults to str.length
-  - Return: returns boolean value
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.endsWith("rk");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.endsWith("Dog");
-  let houseName = "   Starks";
-  houseName.endsWith("rk", 8);
-  ```
-  `endsWith` - lets you determine whether or not a string ends with another string.
+   - Parameter: 
+      1) string to search at the end
+      2) number optional if provided only considers until that index number of original str
+   - Return: boolean ( true or false)
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.endsWith("rk"); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.endsWith("kate"); 
+     let houseName = "Starks";
+     houseName.endsWith("a",3); 
+     ```
+   - `endsWith` returns boolean after checking the string passed as argument at the end.
+
+
 
 9. `includes`
 
-- Parameter: string to be searched for within str, optional parameter position within the string at which to begin searching
-  - Return: returns boolean value
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.includes("a");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.includes("fox");
-  let houseName = "   Starks";
-  houseName.includes("a", 5);
-  ```
-  `includes` - method lets you determine whether or not a string includes another string.
+   - Parameter: 
+      1) string to search
+      2) number optional starts the search from that index
+   - Return: boolean ( true or false)
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.includes("rk"); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.includes("kate"); 
+     let houseName = "Starks";
+     houseName.includes("a",3); 
+     ```
+   - `endsWith` returns boolean after case sensitive checking the string passed as argument in the whole string;
+
 
 10. `indexOf`
 
-- Parameter: string to be searched for within str, optional parameter position within the string at which to begin searching
-  - Return: returns index number type
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.includes("a");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.includes("fox");
-  let houseName = "   Starks";
-  houseName.includes("a", 5);
-  ```
-  `includes` - method lets you determine whether or not a string includes another string.
+   - Parameter: 
+      1) string to search defaults to undefined if not provided
+      2) number optional starts the search from that index
+   - Return: number index of first Occurence or -1 ( if not found)
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.indexOf("rk"); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.indexOf("kate"); 
+     let houseName = "Starks";
+     houseName.indexOf("a",3); 
+     ```
+   - `indexOf` returns number index of first Occurence or -1 ( if not found)
+   note: indexOf with empty string produces strange results;
 
 11. `lastIndexOf`
 
-- Parameter: string to be searched for within str, optional parameter The index of the last character in the string to be considered as the beginning of a match. string type (Search Happens backwards)
-  - Return: returns index of the last occurrence number type
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.lastIndexOf("a");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.lastIndexOf("0");
-  let houseName = "   Starks";
-  houseName.lastIndexOf("s", 5);
-  ```
-  `lastIndexOf` - The index of the last occurrence of searchValue; -1 if not found.
+   - Parameter: 
+      1) string to search defaults to undefined if not provided
+      2) number optional trims string until that position and starts searching from backwards
+   - Return: number index of first Occurence or -1 ( if not found)
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.lastIndexOf("rk"); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.lastIndexOf("kate"); 
+     let houseName = "Starks";
+     houseName.lastIndexOf("a",3); 
+     ```
+   - `lastIndexOf` returns number index of first Occurence or -1 ( if not found)
+   note: indexOf with empty string produces strange results;
 
 12. `padEnd`
 
-- Parameter: The length of the resulting string once the current string has been padded. if the length is less than str than it returns str as it is. as optional parameter it takes string to pad with current string and if padstring exceeds the length then it will truncated from left-to-right.
-  - Return: string with specified length with padstring addded to the end.
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.padEnd(30, "a");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.padEnd(50);
-  let houseName = "   Starks";
-  houseName.padEnd(15, "bucks");
-  ```
-  `padEnd` - pads the current string upto specified length with padstring if provided or whitespace if not provided.
+   - Parameter: 
+      1) string length after original is padded at the end, it it less than original string length then it returns original string
+      2) string to pad
+   - Return: string 
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.padEnd(15,""); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.padEnd(sentance.length+5,"."); 
+     let houseName = "Starks";
+     houseName.padEnd(houseName.length+5,"*"); 
+     ```
+   - `padEnd` returns string after padding 
+
+
 
 13. `padStart`
 
-- Parameter: The length of the resulting string once the current string has been padded. if the length is less than str than it returns str as it is. as optional parameter it takes string to pad with current string and if padstring exceeds the length then it will truncated from left-to-right.
-  - Return: string with specified length with padstring addded to the start.
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.padStart(30, "a");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.padStart(50);
-  let houseName = "   Starks";
-  houseName.padStart(15, "bucks");
-  ```
-  `padEnd` - pads the current string upto specified length with padstring if provided or whitespace if not provided.
+   - Parameter: 
+      1) string length after original is padded at the start, it it less than original string length then it returns original string
+      2) string to pad
+   - Return: string 
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.padStart(15,""); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.padStart(sentance.length+5,"."); 
+     let houseName = "Starks";
+     houseName.padStart(houseName.length+5,"*"); 
+     ```
+   - `padStart` returns string after padding at the start
+
+
 
 14. `repeat`
 
-- Parameter: takes an integer indicating the number of times to repeat the string.
-  - Return: A new string containing the specified number of copies of the given string
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.repeat(3);
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.repeat(2);
-  let houseName = "   Starks";
-  houseName.repeat(10);
-  ```
-  `repeat` - returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+   - Parameter: 
+      1) number which specifies the copy of how many times to repeat
+
+   - Return: string 
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.repeat(2); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.repeat(3); 
+     let houseName = "Starks";
+     houseName.repeat(5); 
+     ```
+   - `repeat` returns string after concatenating with count no
+
 
 15. `replace`
 
-- Parameter: takes two parameters, as first parameter it accepts either regex or string to replace and second parameter either newsubstr or function
-  - Return: A new string, with some or all matches of a pattern replaced by a replacement.
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.replace("Ar", "LA");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.replace(/A/gi, "***");
-  let houseName = "   Starks";
-  houseName.replace("   ", "The ");
-  ```
-  `replace` - The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match. If pattern is a string, only the first occurrence will be replaced.
+   - Parameter: 
+      1) pattern either regex or substr
+      2) new string to replace
+
+   - Return: string 
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.replace("Ar","ar"); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.replace("a","e"); 
+     let houseName = "Starks";
+     houseName.replace("Starks","Lannisters"); 
+     ```
+   - `replace` returns string after changing with found matches
+
 
 16. `slice`
 
-- Parameter: takes two parameters, as first parameter it accepts beginIndex which to begin extraction and second is optional endIndex before which to end extraction. The character at this index will not be included.
-  - Return: A new string containing the extracted section of the string.
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.slice(2);
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.slice(3, -2);
-  let houseName = "   Starks";
-  houseName.slice(-3, -1);
-  ```
-  `slice` - slice() extracts the text from one string and returns a new string. Changes to the text in one string do not affect the other string.
+   - Parameter: 
+      1) begin index
+      2) end index
+
+   - Return: string 
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.slice(1,10); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.slice(2,5); 
+     let houseName = "Starks";
+     houseName.slice(4,-2); 
+     ```
+   - `slice` returns string extracted
+
+
 
 17. `split`
 
-- Parameter: takes two optional parameters, as first parameter it accepts a simple string or it can be a regular expression.
-  as second parameter it accepts number (non-negative integer) to limit on the number of substrings to be included in the array
-  - Return: Array of strings, split at each point where the separator occurs in the given string.
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.split(" ");
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.split(" ", 6);
-  let houseName = "   Starks";
-  houseName.split(" ");
-  ```
-  `split` - The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
+ - Parameter: 
+      1) seperator ( string | regex) optional
+      2) limit - optional
+
+   - Return: string 
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.split(" "); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.split("a"); 
+     let houseName = "Starks";
+     houseName.split("t",2); 
+     ```
+   - `split` returns array split at each point where the separator occurs in the given string.
+
+
+
 
 18. `substring`
 
-- Parameter: takes two parameters, as first parameter it accepts beginIndex which to begin extraction and second is optional endIndex before which to end extraction. The character at this index will not be included.
-  - Return: A new string containing the specified part of the given string.
-  - Example:
-  ```js
-  let name = "Arya Stark";
-  name.substring(2);
-  let sentance = "  A quick brown fox jumped over a lazy dog";
-  sentance.substring(3, -2);
-  let houseName = "   Starks";
-  houseName.substring(-3, -1);
-  ```
-  `substring` -substring() extracts characters from indexStart up to but not including indexEnd
+   - Parameter: 
+      1) begin index
+      2) end index
+
+   - Return: string 
+   - Example:
+     ```js
+     let name = "Arya Stark";
+     name.substring(1,10); 
+     let sentance = "A quick brown fox jumped over a lazy dog";
+     sentance.substring(2,5); 
+     let houseName = "Starks";
+     houseName.substring(4,-2); 
+     ```
+   - `substring` returns string extracted
+
