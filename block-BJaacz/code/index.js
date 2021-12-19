@@ -4,7 +4,7 @@
   Create a function named addTwo which accepts a number, adds 2 to the number and return the new value.
 */
 
-function addTwo(num) {
+function addTwo( num ) {
   return num + 2;
 }
 
@@ -12,7 +12,7 @@ function addTwo(num) {
   Create a function named addThree which accepts a number, adds 3 to the number and return the new value.
 */
 
-function addThree(num) {
+function addThree( num ) {
   return num + 3;
 }
 
@@ -20,9 +20,10 @@ function addThree(num) {
   Create a function named addFive which accepts a number, adds 5 to the number and return the new value.
 */
 
-function addFive(num) {
+function addFive( num ) {
   return num + 5;
 }
+
 
 /*
   Create a function named addTwoToArray which accepts:
@@ -31,13 +32,14 @@ function addFive(num) {
     - While doing so use the funciton addTwo
 */
 
-function addTwoToArry(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    newArr.push(addTwo(i));
+function addTwoToArray( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    outputArray.push( addTwo( i ) );
   }
-  return newArr;
+  return outputArray;
 }
+
 
 /*
   Create a function named addThreeToArray which accepts:
@@ -46,13 +48,15 @@ function addTwoToArry(arr) {
     - while doing so use the funciton addThree
 */
 
-function addThreeToArry(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    newArr.push(addThree(i));
+function addThreeToArray( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    outputArray.push( addThree( i ) );
   }
-  return newArr;
+  return outputArray;
 }
+
+
 
 /*
   Create a function named addFiveToArray which accepts:
@@ -61,13 +65,14 @@ function addThreeToArry(arr) {
     - while doing so use the funciton addThree
 */
 
-function addFiveToArray(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    newArr.push(addFive(i));
+function addFiveToArray( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    outputArray.push( addFive( i ) );
   }
-  return newArr;
+  return outputArray;
 }
+
 
 /*
 In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeating the code, let's fix this.
@@ -85,12 +90,12 @@ In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeatin
     console.log(changeArray([1, 2, 3, 4, 5, 6], addFive)); // [6, 7, 8, 9, 10, 11]
 */
 
-function changeArray(arr, cb) {
-  let newArr = [];
-  for (let i of arr) {
-    newArr.push(cb(i));
+function changeArray( arr, cb ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    outputArray.push( cb( i ) );
   }
-  return newArr;
+  return outputArray;
 }
 
 /*
@@ -104,8 +109,8 @@ function changeArray(arr, cb) {
     console.log(sendMessage("Hello Prompt!", prompt));
 */
 
-function sendMessage(message, cb) {
-  return cb(message);
+function sendMessage( str, cb ) {
+  return cb( str );
 }
 
 /*
@@ -114,8 +119,8 @@ function sendMessage(message, cb) {
 
 */
 
-function first(cb) {
-  return cb();
+function first( cb ) {
+  return cb;
 }
 
 /*
@@ -126,14 +131,13 @@ function first(cb) {
 */
 
 function second() {
-  function third(num) {
+  function third( num ) {
     return num + 1;
   }
   return third;
 }
 
-let secondResult = second();
-secondResult(4);
+second();
 
 /*
  Write a function named `callMe` which
@@ -143,17 +147,11 @@ secondResult(4);
   - also write the required code to call the function.
 */
 
-function helloWorld() {
-  return "Hello World";
-}
-
-function callMe(cb) {
+function callMe( cb ) {
   let final = cb();
   return final;
 }
 
-let result = callMe(helloWorld);
-console.log(result);
 
 // Data Starts (Don't change this)
 const people = [
@@ -188,9 +186,11 @@ const grades = [
     console.log(isAdult(people[2])); // true
 */
 
-function isAdult(obj) {
+
+function isAdult( obj ) {
   return obj.age > 18 ? true : false;
 }
+
 
 /*
   Create a function named isMale which accepts:
@@ -203,9 +203,11 @@ function isAdult(obj) {
     console.log(isMale(grade[2])); // true
 */
 
-function isMale(obj) {
-  return obj.sex === "M" ? true : false;
+function isMale( obj ) {
+  return obj.sex === 'M' ? true : false;
 }
+
+
 
 /*
   Create a function named isFemale which accepts:
@@ -218,9 +220,12 @@ function isMale(obj) {
     console.log(isFemale(grade[2])); // false
 */
 
-function isFemale(obj) {
-  return obj.sex === "F" ? true : false;
+function isFemale( obj ) {
+  return obj.sex === 'F' ? true : false;
 }
+
+
+
 
 /*
   Create a function named isGradeA which accepts:
@@ -233,9 +238,11 @@ function isFemale(obj) {
     console.log(isGradeA(grade[2])); // true
 */
 
-function isGradeA(obj) {
+function isGradeA( obj ) {
   return obj.grade > 12 ? true : false;
 }
+
+
 
 /*
   Create a function named isGradeB which accepts:
@@ -248,7 +255,7 @@ function isGradeA(obj) {
     console.log(isGradeB(grade[2])); // false
 */
 
-function isGradeB(obj) {
+function isGradeB( obj ) {
   return obj.grade > 8 && obj.grade <= 12 ? true : false;
 }
 
@@ -263,9 +270,11 @@ function isGradeB(obj) {
     console.log(isGradeC(grade[2])); // false
 */
 
-function isGradeC(obj) {
+function isGradeC( obj ) {
   return obj.grade <= 8 ? true : false;
 }
+
+
 
 /*
   Create a function named filterAdult which accepts:
@@ -283,15 +292,17 @@ function isGradeC(obj) {
     ];
 */
 
-function filterAdult(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    if (isAdult(i)) {
-      newArr.push(i);
+function filterAdult( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    if ( isAdult( i ) ) {
+      outputArray.push( i )
     }
   }
-  return newArr;
+  return outputArray;
 }
+
+
 
 /*
   Create a function named filterMale which accepts:
@@ -312,14 +323,14 @@ function filterAdult(arr) {
     ];
 */
 
-function filterMale(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    if (isMale(i)) {
-      newArr.push(i);
+function filterMale( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    if ( isMale( i ) ) {
+      outputArray.push( i )
     }
   }
-  return newArr;
+  return outputArray;
 }
 
 /*
@@ -341,14 +352,14 @@ function filterMale(arr) {
     ]
 */
 
-function filterFemale(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    if (isFemale(i)) {
-      newArr.push(i);
+function filterFemale( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    if ( isFemale( i ) ) {
+      outputArray.push( i )
     }
   }
-  return newArr;
+  return outputArray;
 }
 
 /*
@@ -371,14 +382,14 @@ function filterFemale(arr) {
     ]
 */
 
-function filterGradeA(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    if (isGradeA(i)) {
-      newArr.push(i);
+function filterGradeA( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    if ( isGradeA( i ) ) {
+      outputArray.push( i )
     }
   }
-  return newArr;
+  return outputArray;
 }
 
 /*
@@ -400,14 +411,14 @@ function filterGradeA(arr) {
     ]
 */
 
-function filterGradeB(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    if (isGradeB(i)) {
-      newArr.push(i);
+function filterGradeB( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    if ( isGradeB( i ) ) {
+      outputArray.push( i )
     }
   }
-  return newArr;
+  return outputArray;
 }
 
 /*
@@ -428,14 +439,14 @@ function filterGradeB(arr) {
     ]
 */
 
-function filterGradeC(arr) {
-  let newArr = [];
-  for (let i of arr) {
-    if (isGradeC(i)) {
-      newArr.push(i);
+function filterGradeC( arr ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    if ( isGradeC( i ) ) {
+      outputArray.push( i )
     }
   }
-  return newArr;
+  return outputArray;
 }
 
 /*
@@ -459,14 +470,14 @@ filter is a higher order function.
     console.log(filter(grade, isGradeC));
 */
 
-function filter(arr, cb) {
-  let newArr = [];
-  for (let i of arr) {
-    if (cb(i)) {
-      newArr.push(i);
+function filter( arr, cb ) {
+  let outputArray = [];
+  for ( let i of arr ) {
+    if ( cb( i ) ) {
+      outputArray.push( i )
     }
   }
-  return newArr;
+  return outputArray;
 }
 
 /*
@@ -488,8 +499,8 @@ function filter(arr, cb) {
     console.log(multiplyByFive(5)); // 45
 */
 
-function multipleBy(num) {
-  return function com(num2) {
+function multiplyBy( num ) {
+  return function ( num2 ) {
     return num * num2;
-  };
+  }
 }
