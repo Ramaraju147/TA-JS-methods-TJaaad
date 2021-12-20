@@ -11,84 +11,83 @@ Clone the array before using sort method: [...arr]
 */
 
 // - Find the index of `101` in numbers
-numbers.indexOf(101)
+numbers.indexOf( "101" );
+
 
 // - Find the last index of `9` in numbers
-numbers.lastIndexOf(9)
+numbers.lastIndexOf( "9" );
+
 
 // - Convert value of strings array into a sentance like "This is a collection of words"
-[...strings].join(" ")
+strings.join( " " );
+
 
 // - Add two new words in the strings array "called" and "sentance"
-  let newStrings = [...strings]
-newStrings.push("called","sentance")
+let newStrings = [...strings];
+newStrings.push( "called", "sentance" );
 
 // - Again convert the updated array (strings) into sentance like "This is a collection of words called sentance"
-newStrings.join(" ")
+newStrings.join( " " );
+
 
 // - Remove the first word in the array (strings)
-strings.shift()
+strings.shift();
+
 
 // - Find all the words that contain 'is' use string method 'includes'
-strings.filter(x =>
-{
-  if (x.includes("is"))
-  {
-    return x
-  }
-});
+strings.filter( ( str ) => str.includes( "is" ) );
 
 // - Find all trhe words that contain 'is' use string method 'indexOf'
-strings.filter(x =>
-  {
-    if (x.indexOf("is")!==-1)
-    {
-      return x
-    }
-  });
+strings.filter( ( str ) => str.indexOf( "is" ) === -1 ? false : true );
+
 
 // - Check if all the numbers in numbers array are divisible by three use array method (every)
-numbers.every(x => x % 3 == 0);
+numbers.every( num => num % 3 == 0 );
+
 
 // -  Sort Array from smallest to largest
-numbers.sort((a, b) => a - b);
+function compare( a, b ) {
+  return b - a;
+}
+
+numbers.sort( compare );
 
 // - Remove the last word in strings
 strings.pop();
 
 // - Find largest number in numbers
-numbers.sort((a, b) => a - b)[numbers.length-1]
+numbers.sort( ( a, b ) => b - a )[numbers.length - 1]
 
 // - Find longest string in strings
-strings.sort((a,b) => a.length-b.length)[strings.length-1]
+strings.sort( ( a, b ) => b - a )[strings.length - 1]
 
 // - Find all the even numbers
-numbers.filter(x => x % 2 == 0);
+numbers.filter( num => num % 2 == 0 );
 
 // - Find all the odd numbers
-numbers.filter(x => x % 2 !== 0);
+numbers.filter( num => num % 2 != 0 );
 
 // - Place a new word at the start of the array use (unshift)
-strings.unshift("This")
+strings.unshift( "new" );
 
 // - Make a subset of numbers array [18,9,7,11]
-numbers.slice(numbers.indexOf(18),numbers.indexOf(11)+1)
+numbers.slice( 3, 7 );
 
 // - Make a subset of strings array ['a','collection']
-strings.slice(numbers.indexOf('a'),numbers.indexOf("collection")+1)
+strings.slice( 2, 4 );
 
 // - Replace 12 & 18 with 1221 and 1881
-let indexOf12 = numbers.indexOf(12);
-let indexOf18 = numbers.indexOf(18);
-numbers[indexOf12] = 1221;
-numbers[indexOf18]=1881
+let index1 = numbers.indexOf( 12 );
+let index2 = numbers.indexOf( 18 );
+numbers[index1] = 1221;
+numbers[index2] = 1881;
 
 
 // - Replace words in strings array with the length of the word
-strings = strings.map(x => x.length)
+strings = strings.map( str => str.length );
 
 // - Find the sum of the length of words using above question
-strings.reduce((sum, ele) => sum + ele);
+strings.reduce( ( acc, len ) => acc + len, 0 );
 
 
 // - Customers Array
@@ -99,37 +98,23 @@ var customers = [
   { firstname: 'Jack', lastname: 'White' },
 ];
 // - Find all customers whose firstname starts with 'J'
-customers.filter(x => x.firstname[0] === "J");
 
+customers.filter( cus => cus.startsWith( "J" ) )
 
 // - Create new array with only first name
-customers.map(x=>x.firstname)
+customers.map( cus => cus.firstname )
 
 // - Create new array with all the full names (ex: "Joe Blogs")
-let sortedCustomers = customers.map(x=>x.firstname.concat(" ",x.lastname))
+customers.map( cus => `${cus.firstname} ${cus.lastname}` )
 
 // - Sort the array created above alphabetically
-sortedCustomers.sort();
-
+customers.sort()
 
 // - Create a new array that contains only user who has at least one vowel in the firstname.
-
 let vowel = ["a", "e", "i", "o", "u"];
 
-customers.filter(x =>
-{
-  vowel.forEach(y =>
-  {
-    if (x.firstname.includes(y)){
-      return true;
-    }
-  })
-})
-
-customers.filter((x) =>
-{
-  if (x.firstname.includes("a") || x.firstname.includes("e") || x.firstname.includes("i") || x.firstname.includes("o") || x.firstname.includes("u"))
-  {
-    return true;
+[...customers].filter( customer => {
+  for ( let v of vowel ) {
+    return v => customer.firstname.includes( v );
   }
-})
+} )
