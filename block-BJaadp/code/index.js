@@ -16,77 +16,70 @@ let persons = [
 // NOTE: Use reduce method whereever you can to solve this exercise:
 
 // Find the average grade
-console.log(
-  persons.reduce((acc, person) => acc + person.grade, 0) / persons.length
-);
+console.log(persons.reduce((acc,person) => acc+person.grade,0) / persons.length);
 
 // Find the average grade of male
-let male = persons.filter((person) => person.sex === "M");
-console.log(male.reduce((acc, person) => acc + person.grade, 0) / male.length);
+let males = persons.filter((person) => person.sex==="M");
+console.log(males.reduce((acc,male) => acc+male.grade,0)/males.length)
+
 
 // Find the average grade of female
-let female = persons.filter((person) => person.sex === "F");
-console.log(
-  female.reduce((acc, person) => acc + person.grade, 0) / female.length
-);
+let females = persons.filter((person) => person.sex==="F");
+console.log(females.reduce((acc,female) => acc+female.grade,0)/females.length)
+
 
 // Find the highest grade
-console.log(
-  persons.reduce((acc, person) => {
-    if (person.grade > acc) {
-      return person.grade;
-    } else {
-      return acc;
-    }
-  }, 0)
-);
+persons.reduce((acc,person) => {
+  if(person.grade>acc){
+    return person.grade
+}
+return acc
+},0)
+
 
 // Find the highest grade in male
-console.log(
-  male.reduce((acc, person) => {
-    if (person.grade > acc) {
-      return person.grade;
-    } else {
-      return acc;
-    }
-  }, 0)
-);
+males.reduce((acc,person) => {
+  if(person.grade>acc){
+    return person.grade
+}
+return acc
+},0)
+
 
 // Find the highest grade in female
-console.log(
-  female.reduce((acc, person) => {
-    if (person.grade > acc) {
-      return person.grade;
-    } else {
-      return acc;
-    }
-  }, 0)
-);
+females.reduce((acc,person) => {
+  if(person.grade>acc){
+    return person.grade
+}
+return acc
+},0)
 
 // Find the highest grade for people whose name starts with 'J' or 'P'
-console.log(
-  persons.reduce((acc, person) => {
-    if (
-      person.grade > acc &&
-      (person.name.startsWith("J") || person.name.startsWith("P"))
-    ) {
-      return person.grade;
-    } else {
-      return acc;
-    }
-  }, 0)
-);
+persons.reduce((acc,person) => {
+  if(person.grade>acc && (person.name.startsWith('J') || person.name.startsWith('P'))){
+    return person.grade
+  }
+  return acc;
+},0)
 
 /*
 
 Use the fruitBasket array to create an object where key will be the fruit and value will be the number of times
 that fruit has appeared in the array. Store it in new variable fruitsObj
 
-
-
 Output:
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
+
+let fruitObj = fruitBasket.reduce((acc,fruit) => {
+ if(acc.hasOwnProperty(fruit)){
+   acc[fruit] = acc[fruit] + 1;
+   return acc;
+ }else{
+   acc[fruit] = 1;
+   return acc;
+ }
+},{})
 
 const fruitBasket = [
   "banana",
@@ -102,15 +95,7 @@ const fruitBasket = [
   "fig",
 ];
 
-fruitBasket.reduce((acc, fruit) => {
-  if (fruit in acc) {
-    acc[fruit] += 1;
-    return acc;
-  } else {
-    acc[fruit] = 1;
-    return acc;
-  }
-}, {});
+
 
 /*
 
@@ -123,18 +108,12 @@ Output:
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
-fruitBasket.reduce((acc, fruit) => {
-  if (acc.length > 0) {
-    for (let arr of acc) {
-      if (arr[0] === fruit) {
-        arr[1] += 1;
-        return acc;
-      }
-    }
-  }
-  acc.push([fruit, 1]);
-  return acc;
-}, []);
+
+Object.keys(fruitObj).reduce((acc,fruit) => {
+    acc.push([fruit,fruitObj[fruit]])
+    return acc;
+ },[])
+
 
 const data = [
   [1, 2, 3],
@@ -144,10 +123,10 @@ const data = [
 ];
 
 // Using reduce flat data array
-data.reduce((acc, arr) => {
-  acc.push(arr);
-  return acc.flat(Infinity);
-}, []);
+data.reduce((acc,arr) => {
+return acc.concat(arr);
+},[])
+
 
 const dataTwo = [
   [1, 2, 3],
@@ -157,10 +136,9 @@ const dataTwo = [
 ];
 
 // Using reduce flat dataTwo array
-dataTwo.reduce((acc, arr) => {
-  acc.push(arr);
-  return acc.flat(Infinity);
-}, []);
+function flatten(arr){
+  return arr.reduce((acc,a) => acc.concat(Array.isArray(a)?flatten(a):a),[])
+}
 
 /*
 
@@ -172,25 +150,26 @@ Create these functions which accepts a number value and returns a number value:
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
 
-function increment(input) {
-  return input;
+function increment(num){
+  return num+1;
 }
 
-function double(input) {
-  return input * 2;
+function double(num){
+  return num*2;
 }
 
-function decrement(input) {
-  return input - 1;
+function decrement(num){
+  return num-1;
 }
 
-function triple(input) {
-  return input * 3;
+function triple(num){
+  return num*3;
 }
 
-function half(input) {
-  return input / 2;
+function half(num){
+  return Math.round(num/2);
 }
+
 
 let pipeline = [
   increment,
@@ -217,7 +196,9 @@ EXAMPLE:
   ...
 */
 
-pipeline.reduce((acc, func) => func(acc), 3);
+pipeline.reduce((acc,func) => func(acc),3)
+
+
 
 let pipeline2 = [
   increment,
@@ -234,5 +215,6 @@ let pipeline2 = [
 ];
 
 // Find the output using pipeline2 the initial value if 8
+pipeline.reduce((acc,func) => func(acc),8)
 
-pipeline2.reduce((acc, func) => func(acc), 8);
+
