@@ -1,4 +1,4 @@
-const got = {
+export const got = {
   houses: [
     {
       name: "Starks",

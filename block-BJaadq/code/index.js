@@ -1,77 +1,102 @@
 // NOTE: You can not use reduce methods to solve this exercise
 
-function countAllPeople() {
+/*
+#### Open `index.js` and do the following:
+
+You have a file named `data.js` that contains the data that is accessible to you using name `got`.
+
+Note: Solve all the problems without using the reduce method.
+
+- 1. Write a function called `countAllPeople` which counts the total number of people in `got` variable defined in `data.js` file.
+
+- 2. Write a function called `peopleByHouses` which counts the total number of people in different houses in the `got` variable defined in `data.js` file.
+
+- 3. Write a function called `everyone` which returns a array of names of all the people in `got` variable.
+
+- 4. Write a function called `nameWithS` which returns a array of names of all the people in `got` variable whose name includes `s` or `S`.
+
+- 5. Write a function called `nameWithA` which returns a array of names of all the people in `got` variable whose name includes `a` or `A`.
+
+- 6. Write a function called `surnameWithS` which returns a array of names of all the people in `got` variable whoes surname is starting with `S`(capital s).
+
+- 7. Write a function called `surnameWithA` which returns a array of names of all the people in `got` variable whoes surname is starting with `A`(capital a).
+
+- 8. Write a function called `peopleNameOfAllHouses` which returns an object with the key of the name of house and value will be all the people in the house in an array.
+
+*/
+
+import got from "./data";
+
+function countAllPeople(){
   let count = 0;
-  got.houses.forEach((x) => (count = count + x.people.length));
+  got.houses.forEach((house) => count=count+house.people.length)
   return count;
 }
 
-function peopleByHouses() {
-  let peopleByHouse = {};
-  got.houses.forEach((x) => (peopleByHouse[x.name] = x.people.length));
-  return peopleByHouse;
+function peopleByHouses(){
+  let countByHouse = {} ;
+  got.houses.forEach((house) => countByHouse[house.name] = house.people.length)
+  return countByHouse;
 }
 
-function everyone() {
+function everyone(){
+  let everyone = [] ;
+  got.houses.forEach((house) =>  house.people.forEach(p => everyone.push(p.name)))
+  return everyone;
+}
+
+function nameWithS(){
+  let array = [] ;
+  got.houses.forEach((house) =>  house.people.forEach(p => {
+    if(p.name.toLowerCase().includes("s")){
+      array.push(p.name)
+    }
+  }))
+  return array;
+}
+
+function nameWithA(){
+  let array = [] ;
+  got.houses.forEach((house) =>  house.people.forEach(p => {
+    if(p.name.toLowerCase().includes("a")){
+      array.push(p.name)
+    }
+  }))
+  return array;
+}
+
+function surnameWithS(){
   let arr = [];
-  got.houses.forEach((x) => x.people.forEach((y) => arr.push(y.name)));
-  return arr;
+  got.houses.forEach((house) => house.people.forEach(p => {
+    let name = p.name.split(" ")
+    if(name[name.length-1].startsWith("S")){
+      arr.push(p.name)
+    }
+  }))
+  return array;
 }
 
-function nameWithS() {
+function surnameWithA(){
   let arr = [];
-  got.houses.forEach((x) =>
-    x.people.forEach((y) => {
-      if (y.name.startsWith("S")) arr.push(y.name);
-    })
-  );
-  return arr;
+  got.houses.forEach((house) => house.people.forEach(p => {
+    let name = p.name.split(" ")
+    if(name[name.length-1].startsWith("A")){
+      arr.push(p.name)
+    }
+  }))
+  return array;
 }
 
-function nameWithA() {
-  let arr = [];
-  got.houses.forEach((x) =>
-    x.people.forEach((y) => {
-      if (y.name.startsWith("A")) arr.push(y.name);
-    })
-  );
-  return arr;
+function peopleNameOfAllHouses(){
+  let obj = {};
+  got.houses.forEach((house) => {
+    let arr = []
+    house.people.forEach(p => arr.push(p.name))
+    obj[house.name] = arr
+  })
+  return obj;
 }
-
-function surnameWithS() {
-  let arr = [];
-  got.houses.forEach((x) =>
-    x.people.forEach((y) => {
-      let nameArray = y.name.split(" ");
-      if (nameArray[nameArray.length - 1].toLowerCase().charAt(0) === "s")
-        arr.push(y.name);
-    })
-  );
-  return arr;
-}
-
-function surnameWithA() {
-  let arr = [];
-  got.houses.forEach((x) =>
-    x.people.forEach((y) => {
-      let nameArray = y.name.split(" ");
-      if (nameArray[nameArray.length - 1].toLowerCase().charAt(0) === "a")
-        arr.push(y.name);
-    })
-  );
-  return arr;
-}
-
-function peopleNameOfAllHouses() {
-  let peopleByHouse = {};
-  got.houses.forEach((x) => (peopleByHouse[x.name] = x.people));
-  const ordered = {};
-  Object.keys(peopleByHouse)
-    .sort()
-    .forEach((z) => (ordered[z] = peopleByHouse[z]));
-  return ordered;
-}
-
+peopleNameOfAllHouses()
 // Testing your result after writing your function
 console.log(countAllPeople());
 // Output should be 33
