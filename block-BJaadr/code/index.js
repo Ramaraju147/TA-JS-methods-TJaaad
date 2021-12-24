@@ -52,15 +52,12 @@ function surnameWithS() {
   });
 }
 
-let arr = [];
-got.houses.forEach((x) =>
-  x.people.forEach((y) => {
-    let nameArray = y.name.split(" ");
-    if (nameArray[nameArray.length - 1].toLowerCase().charAt(0) === "s")
-      arr.push(y.name);
-  })
-);
-return arr;
+function peopleNameOfAllHouses(){
+  return got.houses.reduce((acc, x) => {
+    acc[x.name] = x.people.map((y) => y.name);
+    return acc;
+  },{});
+}
 
 function surnameWithA() {
   // your code goes here
